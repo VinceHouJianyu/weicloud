@@ -8,6 +8,7 @@ import DataCharts from '@/components/DataCharts'
 import PostArticle from '@/components/PostArticle'
 import UserMana from '@/components/UserMana'
 import BlogDetail from '@/components/BlogDetail'
+import Demo from '@/components/Demo'
 
 Vue.use(Router)
 
@@ -26,26 +27,86 @@ export default new Router({
     }, {
       path: '/home',
       component: Home,
-      name: '文章管理',
-      iconCls: 'fa fa-file-text-o',
+      name: '关于微云',
+      children: [
+        {
+          path: '/user',
+          name: '关于微云',
+          component: Demo
+        }
+      ]
+    },
+    {
+      path: '/home',
+      component: Home,
+      name: '最新活动',
+      children: [
+        {
+          path: '/user',
+          name: '最新活动',
+          component: UserMana
+        }
+      ]
+    },
+    {
+      path: '/home',
+      component: Home,
+      name: '产品',
+      children: [
+        {
+          path: '/user',
+          name: '产品',
+          component: UserMana
+        }
+      ]
+    },
+    {
+      path: '/home',
+      component: Home,
+      name: '解决方案',
+      children: [
+        {
+          path: '/user',
+          name: '解决方案',
+          component: UserMana
+        }
+      ]
+    },
+    {
+      path: '/home',
+      component: Home,
+      name: '工业互联网',
+      children: [
+        {
+          path: '/user',
+
+          name: '工业互联网',
+          component: UserMana
+        }
+      ]
+    },{
+      path: '/home',
+      component: Home,
+      name: '企业应用',
+
       children: [
         {
           path: '/articleList',
-          name: '文章列表',
+          name: '企业应用',
           component: ArticleList,
           meta: {
             keepAlive: true
           }
         }, {
           path: '/postArticle',
-          name: '发表文章',
+          name: '企业应用',
           component: PostArticle,
           meta: {
             keepAlive: false
           }
         }, {
           path: '/blogDetail',
-          name: '博客详情',
+          name: '企业应用',
           component: BlogDetail,
           hidden: true,
           meta: {
@@ -53,7 +114,7 @@ export default new Router({
           }
         }, {
           path: '/editBlog',
-          name: '编辑博客',
+          name: '企业应用',
           component: PostArticle,
           hidden: true,
           meta: {
@@ -64,37 +125,36 @@ export default new Router({
     }, {
       path: '/home',
       component: Home,
-      name: '用户管理',
+      name: '云基础资源',
       children: [
         {
           path: '/user',
-          iconCls: 'fa fa-user-o',
-          name: '用户管理',
+          name: '云基础资源',
           component: UserMana
         }
       ]
     }, {
       path: '/home',
       component: Home,
-      name: '栏目管理',
+      name: '加入我们',
       children: [
         {
           path: '/cateMana',
-          iconCls: 'fa fa-reorder',
-          name: '栏目管理',
+
+          name: '加入我们',
           component: CateMana
         }
       ]
     }, {
       path: '/home',
       component: Home,
-      name: '数据统计',
-      iconCls: 'fa fa-bar-chart',
+      name: '支持与服务',
+
       children: [
         {
           path: '/charts',
-          iconCls: 'fa fa-bar-chart',
-          name: '数据统计',
+
+          name: '支持与服务',
           component: DataCharts
         }
       ]
