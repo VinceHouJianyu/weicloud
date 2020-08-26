@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.sang.mapper.ProductMapper">
+    <select id="getAllProduct" resultType="org.sang.bean.Product">
+        SELECT * FROM product_info
+        <if test="product_type != 0">
+            where product_type = #{product_type}
+        </if>
+    </select>
+    <insert id="addOrder" parameterType="org.sang.bean.Order">
+        insert into order_info set   order_id = #{order_id},
+      product_id  = #{product_id},
+      product_name  = #{product_name},
+      order_number  = #{order_number},
+      price   = #{price},
+      payment_status  = #{payment_status},
+      username  = #{username},
+      ordertime  = #{ordertime}
+    </insert>
+
+</mapper>

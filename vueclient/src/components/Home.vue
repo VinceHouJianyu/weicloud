@@ -1,25 +1,33 @@
 <template>
   <el-container class="home_container">
     <el-header>
-      <div class="home_title">微云互联赋能平台</div>
-      <div class="home_userinfoContainer">
+      <img src="../assets/images/logo.png" width="180 px"/>
+      <!--<el-input placeholder="请输入内容" prefix-icon="el-icon-search" v-model="input2" style="width: auto"></el-input>-->
+      <div class="home_userinfoContainer" >
+       <div v-if="currentUserName == '游客'">
+         <router-link :to="{ path: '/login' }"  >登录</router-link>
+         <router-link :to="{ path: '/sign' }"  >注册</router-link>
+       </div>
+        <div v-else>
         <el-dropdown @command="handleCommand">
   <span class="el-dropdown-link home_userinfo">
     {{currentUserName}}<i class="el-icon-arrow-down el-icon--right home_userinfo"></i>
   </span>
           <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item command="MyHome">个人主页</el-dropdown-item>
+            <el-dropdown-item command="MyOrder">我的订单</el-dropdown-item>
             <el-dropdown-item command="sysMsg">系统消息</el-dropdown-item>
             <!--<el-dropdown-item command="MyArticle">我的文章</el-dropdown-item>-->
-            <el-dropdown-item command="MyHome">个人主页</el-dropdown-item>
+
             <el-dropdown-item command="logout" divided>退出登录</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
+        </div>
       </div>
     </el-header>
-    <el-container>
-      <el-aside width="200px">
+      <el-header >
         <el-menu
-          default-active="0"
+          default-active="activeIndex" mode="horizontal"
           class="el-menu-vertical-demo" style="background-color: #ECECEC" router>
           <template v-for="(item,index) in this.$router.options.routes" v-if="!item.hidden">
             <el-submenu :index="index+''" v-if="item.children.length>1" :key="index">
@@ -39,20 +47,20 @@
             </template>
           </template>
         </el-menu>
-      </el-aside>
+      </el-header>
       <el-container>
         <el-main>
-          <el-breadcrumb separator-class="el-icon-arrow-right">
+       <!--   <el-breadcrumb separator-class="el-icon-arrow-right">
             <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
             <el-breadcrumb-item v-text="this.$router.currentRoute.name"></el-breadcrumb-item>
-          </el-breadcrumb>
+          </el-breadcrumb>-->
           <keep-alive>
             <router-view v-if="this.$route.meta.keepAlive"></router-view>
           </keep-alive>
           <router-view v-if="!this.$route.meta.keepAlive"></router-view>
         </el-main>
       </el-container>
-    </el-container>
+
   </el-container>
 </template>
 <script>
@@ -74,20 +82,22 @@
             //取消
           })
         }
+        if (command == 'MyHome') {
+          _this.$router.replace({path: '/persionhomepage/myprofile'});
+        }
+        if (command == 'MyOrder') {
+          _this.$router.replace({path: '/persionhomepage/myorder'});
+        }
       }
     },
     mounted: function () {
-      this.$alert('欢迎登陆微云互联平台', '友情提示', {
-        confirmButtonText: '确定',
-        callback: action => {
-        }
-      });
       var _this = this;
       getRequest("/currentUserName").then(function (msg) {
         _this.currentUserName = msg.data;
       }, function (msg) {
         _this.currentUserName = '游客';
       });
+      _this.$router.replace({path: '/show'});
     },
     data(){
       return {
@@ -106,7 +116,7 @@
   }
 
   .el-header {
-    background-color: #20a0ff;
+    background-color: #ECECEC;
     color: #333;
     text-align: center;
     display: flex;
@@ -125,18 +135,36 @@
   }
 
   .home_title {
-    color: #fff;
-    font-size: 22px;
+    color: #FFFFFF;
+    font-size: 8px;
     display: inline;
   }
 
   .home_userinfo {
-    color: #fff;
+    color: #000000;
     cursor: pointer;
   }
 
   .home_userinfoContainer {
     display: inline;
     margin-right: 20px;
+  }
+   .el-carousel__item h3 {
+     color: #475669;
+     font-size: 14px;
+     opacity: 0.75;
+     line-height: 150px;
+     margin: 0;
+   }
+
+  .el-carousel__item:nth-child(2n) {
+    background-color: #99a9bf;
+  }
+
+  .el-carousel__item:nth-child(2n+1) {
+    background-color: #d3dce6;
+  }
+  .carousel_image_type{
+    width: 100%;
   }
 </style>

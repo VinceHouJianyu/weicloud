@@ -22,6 +22,9 @@ public class User implements UserDetails {
     private String email;
     private String userface;
     private Timestamp regTime;
+    private Long phone;
+    private String customerIndustry;
+    private String companyName;
 
     public Timestamp getRegTime() {
         return regTime;
@@ -61,6 +64,13 @@ public class User implements UserDetails {
 
     public void setId(Long id) {
         this.id = id;
+    }
+    public Long getPhone() {
+        return phone;
+    }
+
+    public void setPhone(Long phone) {
+        this.phone = phone;
     }
 
     public String getUsername() {
@@ -116,7 +126,20 @@ public class User implements UserDetails {
     public void setPassword(String password) {
         this.password = password;
     }
+    public String getCustomerIndustry() {
+        return customerIndustry;
+    }
 
+    public void setCustomerIndustry(String customerIndustry) {
+        this.customerIndustry = customerIndustry;
+    }
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
     public String getNickname() {
         return nickname;
     }

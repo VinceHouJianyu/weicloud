@@ -6,6 +6,7 @@ import org.sang.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -41,7 +42,7 @@ public class LoginRegController {
 
     @PostMapping("/reg")
     public RespBean reg(User user) {
-        int result = userService.reg(user);
+        int result = userService.sign(user);
         if (result == 0) {
             //成功
             return new RespBean("success", "注册成功!");

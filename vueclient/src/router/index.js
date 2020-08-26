@@ -2,26 +2,78 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '@/components/Login'
 import Home from '@/components/Home'
-import ArticleList from '@/components/ArticleList'
-import CateMana from '@/components/CateMana'
-import DataCharts from '@/components/DataCharts'
-import PostArticle from '@/components/PostArticle'
-import UserMana from '@/components/UserMana'
-import BlogDetail from '@/components/BlogDetail'
-import Demo from '@/components/Demo'
+
+import Sign from '@/components/Sign'
+import AboutUs from '@/components/AboutUs'
+import CloudBasicResources from '@/components/CloudBasicResources'
+import EnterpriseApplication from '@/components/EnterpriseApplication'
+import IndustrialInternet from '@/components/IndustrialInternet'
+import JoinUs from '@/components/JoinUs'
+import NewEvent from '@/components/NewEvent'
+import Product from '@/components/Product'
+import Solution from '@/components/Solution'
+import SupportAndService from '@/components/SupportAndService'
+import MyProfile from '@/components/PersionHomePage/MyProfile'
+import Show from '@/components/Show'
+import MyOrder from '@/components/PersionHomePage/MyOrder'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/',
+      path: '/login',
       name: '登录',
       hidden: true,
       component: Login
-    }, {
+    },
+    {
+      path: '/sign',
+      name: '注册',
+      hidden: true,
+      component: Sign
+    },
+    {
       path: '/home',
-      name: '',
+      name: '个人主页',
+      hidden: true,
+      component: Home,
+      children: [
+        {
+          path: '/persionhomepage/myprofile',
+          name: '个人主页',
+          component: MyProfile
+        }
+      ]
+    },
+    {
+      path: '/home',
+      name: '我的订单',
+      hidden: true,
+      component: Home,
+      children: [
+        {
+          path: '/persionhomepage/myorder',
+          name: '我的订单',
+          component: MyOrder
+        }
+      ]
+    },
+    {
+      path: '/home',
+      name: '首页展示',
+      hidden: true,
+      component: Home,
+      children: [
+        {
+          path: '/show',
+          name: '首页展示',
+          component: Show
+        }
+      ]
+    },{
+      path: '/',
+      name: '首页',
       component: Home,
       hidden: true
     }, {
@@ -30,9 +82,9 @@ export default new Router({
       name: '关于微云',
       children: [
         {
-          path: '/user',
+          path: '/aboutus',
           name: '关于微云',
-          component: Demo
+          component: AboutUs
         }
       ]
     },
@@ -42,9 +94,9 @@ export default new Router({
       name: '最新活动',
       children: [
         {
-          path: '/user',
+          path: '/newevent',
           name: '最新活动',
-          component: UserMana
+          component: NewEvent
         }
       ]
     },
@@ -54,9 +106,9 @@ export default new Router({
       name: '产品',
       children: [
         {
-          path: '/user',
+          path: '/product',
           name: '产品',
-          component: UserMana
+          component: Product
         }
       ]
     },
@@ -66,9 +118,9 @@ export default new Router({
       name: '解决方案',
       children: [
         {
-          path: '/user',
+          path: '/solution',
           name: '解决方案',
-          component: UserMana
+          component: Solution
         }
       ]
     },
@@ -78,47 +130,22 @@ export default new Router({
       name: '工业互联网',
       children: [
         {
-          path: '/user',
-
+          path: '/industrialinternet',
           name: '工业互联网',
-          component: UserMana
+          component: IndustrialInternet
         }
       ]
     },{
       path: '/home',
       component: Home,
       name: '企业应用',
-
       children: [
         {
-          path: '/articleList',
+          path: '/enterpriseapplication',
           name: '企业应用',
-          component: ArticleList,
+          component: EnterpriseApplication,
           meta: {
             keepAlive: true
-          }
-        }, {
-          path: '/postArticle',
-          name: '企业应用',
-          component: PostArticle,
-          meta: {
-            keepAlive: false
-          }
-        }, {
-          path: '/blogDetail',
-          name: '企业应用',
-          component: BlogDetail,
-          hidden: true,
-          meta: {
-            keepAlive: false
-          }
-        }, {
-          path: '/editBlog',
-          name: '企业应用',
-          component: PostArticle,
-          hidden: true,
-          meta: {
-            keepAlive: false
           }
         }
       ]
@@ -128,9 +155,9 @@ export default new Router({
       name: '云基础资源',
       children: [
         {
-          path: '/user',
+          path: '/cloudbasicresources',
           name: '云基础资源',
-          component: UserMana
+          component: CloudBasicResources
         }
       ]
     }, {
@@ -139,23 +166,20 @@ export default new Router({
       name: '加入我们',
       children: [
         {
-          path: '/cateMana',
-
+          path: '/joinus',
           name: '加入我们',
-          component: CateMana
+          component: JoinUs
         }
       ]
     }, {
       path: '/home',
       component: Home,
       name: '支持与服务',
-
       children: [
         {
-          path: '/charts',
-
+          path: '/supportandservice',
           name: '支持与服务',
-          component: DataCharts
+          component: SupportAndService
         }
       ]
     }

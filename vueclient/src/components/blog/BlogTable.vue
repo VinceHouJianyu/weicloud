@@ -85,8 +85,8 @@
 </template>
 
 <script>
-  import {putRequest} from '../utils/api'
-  import {getRequest} from '../utils/api'
+  import {putRequest} from '../../utils/api'
+  import {getRequest} from '../../utils/api'
 //  import Vue from 'vue'
 //  var bus = new Vue()
 
