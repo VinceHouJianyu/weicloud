@@ -11,4 +11,6 @@ import java.util.List;
 public interface ProductMapper {
     List<Product> getAllProduct(@Param("product_type") Long product_type);
     int addOrder(Order order);
+
+    Product getOneProduct(Long product_id);
 }

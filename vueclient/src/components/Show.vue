@@ -33,7 +33,7 @@
       <img src="../assets/images/9.jpg" class="carousel_image_type" style="width: 100%">
       <img src="../assets/images/10.jpg" class="carousel_image_type" style="width: 100%">
       <img src="../assets/images/11.jpg" class="carousel_image_type" style="width: 100%">
-
+      <img src="../assets/images/foot.jpg" class="carousel_image_type" style="width: 100%">
 
     </el-main>
   </el-container>

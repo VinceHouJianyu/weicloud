@@ -4,18 +4,16 @@
     <el-main>
       <el-card class="box-card" v-for="(product,index) in products" :key="index">
         <div slot="header" class="clearfix">
-          <span>工业互联网</span>
+          <span v-model="product.product_name">{{product.product_name}}</span>
         </div>
-        <div class="text item">
-          产品名称： <span v-model="product.product_name">{{product.product_name}}</span>
-        </div>
+
         <div class="text item">
           产品价格： <span>{{product.price}}</span>
         </div>
         <div class="text item">
           产品描述：<span>{{product.description}}</span>
         </div>
-        <el-button style="float: right; padding: 3px 0" type="text" @click.native="orderNow(product.price,product.product_name,product.product_id)">立即下单</el-button>
+        <el-button style="float: right; padding: 3px 0" type="text" @click.native="routerto(product.product_id)">详情</el-button>
       </el-card>
     </el-main>
 
@@ -41,7 +39,22 @@
       }
     },
     methods: {
+      routerto(id){
 
+        if (id == 22){
+          this.$router.push({path:'/gongye6'})
+        }
+        if (id == 23){
+          this.$router.push({path:'/gongye7'})
+        }
+        if (id == 24){
+          this.$router.push({path:'/gongye8'})
+        }
+        if (id == 25){
+          this.$router.push({path:'/gongye9'})
+        }
+
+      },
       orderNow(price,name,id) {
         var _this = this;
         /* this.$confirm('确认立即下单吗?', '提示', {

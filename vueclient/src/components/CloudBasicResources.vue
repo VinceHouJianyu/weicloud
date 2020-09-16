@@ -4,18 +4,16 @@
     <el-main>
       <el-card class="box-card" v-for="(product,index) in products" :key="index">
         <div slot="header" class="clearfix">
-          <span>云基础资源</span>
+          <span v-model="product.product_name">{{product.product_name}}</span>
         </div>
-        <div class="text item">
-          产品名称： <span v-model="product.product_name">{{product.product_name}}</span>
-        </div>
+
         <div class="text item">
           产品价格： <span>{{product.price}}</span>
         </div>
         <div class="text item">
           产品描述：<span>{{product.description}}</span>
         </div>
-        <el-button style="float: right; padding: 3px 0" type="text" @click.native="orderNow(product.price,product.product_name,product.product_id)">立即下单</el-button>
+        <el-button style="float: right; padding: 3px 0" type="text" @click.native="routerto(product.product_id)">详情</el-button>
       </el-card>
     </el-main>
 
@@ -41,6 +39,27 @@
       }
     },
     methods: {
+      routerto(id){
+        if (id == 33){
+            this.$router.push({path:'/gongye17'})
+        }
+        if (id == 34){
+          this.$router.push({path:'/gongye18'})
+        }
+        if (id == 35){
+          this.$router.push({path:'/gongye19'})
+        }
+        if (id == 36){
+          this.$router.push({path:'/gongye20'})
+        }
+        if (id == 37){
+          this.$router.push({path:'/gongye21'})
+        }
+        if (id == 38){
+          this.$router.push({path:'/gongye22'})
+        }
+
+      },
 
       orderNow(price,name,id) {
         var _this = this;

@@ -1,6 +1,7 @@
 package org.sang.bean;
 
 import java.sql.Timestamp;
+import java.util.Date;
 
 public class Order {
     private Long order_id ;
@@ -10,7 +11,7 @@ public class Order {
     private Long price ;
     private Long payment_status;
     private String username;
-    private Timestamp ordertime;
+    private String ordertime;
 
 
     public Long getOrder_id() {
@@ -69,11 +70,11 @@ public class Order {
         this.username = username;
     }
 
-    public Timestamp getOrdertime() {
+    public String getOrdertime() {
         return ordertime;
     }
 
-    public void setOrdertime(Timestamp ordertime) {
+    public void setOrdertime(String ordertime) {
         this.ordertime = ordertime;
     }
 }

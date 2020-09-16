@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -26,12 +27,18 @@ public class ProductService {
         try {
             String username = Util.getCurrentUser().getUsername();
             Long status = new Long(1);
-            Timestamp createTime = new Timestamp(new Date().getTime());//获取当前时间
+
+
             order.setOrder_id(System.currentTimeMillis());
             order.setProduct_id(product.getProduct_id());
-            order.setOrdertime(createTime);
+
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            Date dt = new Date();
+            String date= sdf.format(dt);
+
+            order.setOrdertime(date);
             order.setPayment_status(status.longValue());
-            order.setOrder_number(status.longValue());
+            order.setOrder_number(product.getNum());
             order.setPrice(product.getPrice());
             order.setProduct_name(product.getProduct_name());
             order.setUsername(username);
@@ -42,5 +49,10 @@ public class ProductService {
 
         int tag = productMapper.addOrder(order);
         return tag;
+    }
+
+    public Product getOneProduct(Long product_id) {
+        Product product = productMapper.getOneProduct(product_id);
+        return product;
     }
 }

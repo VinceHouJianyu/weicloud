@@ -17,6 +17,35 @@ import MyProfile from '@/components/PersionHomePage/MyProfile'
 import Show from '@/components/Show'
 import MyOrder from '@/components/PersionHomePage/MyOrder'
 
+
+import Gongye1 from  '@/components/Gongye1'
+import Gongye2 from  '@/components/Gongye2'
+import Gongye3 from  '@/components/Gongye3'
+import Gongye4 from  '@/components/Gongye4'
+import Gongye5 from  '@/components/Gongye5'
+import Gongye6 from  '@/components/Gongye6'
+import Gongye7 from  '@/components/Gongye7'
+import Gongye8 from  '@/components/Gongye8'
+import Gongye9 from  '@/components/Gongye9'
+import Gongye10 from  '@/components/Gongye10'
+import Gongye11 from  '@/components/Gongye11'
+import Gongye12 from  '@/components/Gongye12'
+import Gongye13 from  '@/components/Gongye13'
+import Gongye14 from  '@/components/Gongye14'
+import Gongye15 from  '@/components/Gongye15'
+import Gongye16 from  '@/components/Gongye16'
+import Gongye17 from  '@/components/Gongye17'
+import Gongye18 from  '@/components/Gongye18'
+import Gongye19 from  '@/components/Gongye19'
+import Gongye20 from  '@/components/Gongye20'
+import Gongye21 from  '@/components/Gongye21'
+import Gongye22 from  '@/components/Gongye22'
+
+import Gongye from  '@/components/Gongye'
+
+import User from '@/components/PersionHomePage/User'
+
+
 Vue.use(Router)
 
 export default new Router({
@@ -56,6 +85,19 @@ export default new Router({
           path: '/persionhomepage/myorder',
           name: '我的订单',
           component: MyOrder
+        }
+      ]
+    },
+    {
+      path: '/home',
+      name: '用户管理',
+      hidden: true,
+      component: Home,
+      children: [
+        {
+          path: '/persionhomepage/user',
+          name: '用户管理',
+          component: User
         }
       ]
     },
@@ -106,58 +148,164 @@ export default new Router({
       name: '产品',
       children: [
         {
-          path: '/product',
-          name: '产品',
-          component: Product
-        }
-      ]
-    },
-    {
-      path: '/home',
-      component: Home,
-      name: '解决方案',
-      children: [
-        {
           path: '/solution',
-          name: '解决方案',
+          name: '工业互联网解决方案',
           component: Solution
-        }
-      ]
-    },
-    {
-      path: '/home',
-      component: Home,
-      name: '工业互联网',
-      children: [
+
+        },
+        {
+          path: '/enterpriseapplication',
+          name: '企业应用',
+          component: EnterpriseApplication
+        },
         {
           path: '/industrialinternet',
-          name: '工业互联网',
+          name: '上云应用解决方案',
           component: IndustrialInternet
+        },
+        {
+          path: '/cloudbasicresources',
+          name: '华为云基础服务',
+          component: CloudBasicResources
         }
       ]
+    },
+    {
+      path: '/home',
+      component: Home,
+      name: '工业互联网解决方案',
+      children: [
+            {
+              path: '/gongye',
+              name: '工业智能体',
+              component: Gongye
+            },
+            {
+              path: '/gongye1',
+              name: '制造执行 MES',
+              component: Gongye1
+            },
+            {
+              path: '/gongye2',
+              name: '工业 IOT',
+              component: Gongye2
+            },
+            {
+              path: '/gongye3',
+              name: '企业经营管理',
+              component: Gongye3,
+            },
+            {
+              path: '/gongye4',
+              name: '智能生产',
+              component: Gongye4
+            },
+            {
+              path: '/gongye5',
+              name: '研发设计与仿真',
+              component: Gongye5,
+            }
+          ]
+    },
+    {
+      path: '/home',
+      component: Home,
+      name: '上云应用解决方案',
+      children: [
+
+            {
+              path: '/gongye6',
+              name: 'SAP上云解决方案',
+              component: Gongye6,
+            },
+            {
+              path: '/gongye7',
+              name: '核心数据库上云',
+              component: Gongye7,
+            },
+            {
+              path: '/gongye8',
+              name: '微软上云',
+              component: Gongye8,
+            },
+            {
+              path: '/gongye9',
+              name: 'ERP上云',
+              component: Gongye9,
+            }
+            ]
     },{
       path: '/home',
       component: Home,
       name: '企业应用',
       children: [
         {
-          path: '/enterpriseapplication',
-          name: '企业应用',
-          component: EnterpriseApplication,
-          meta: {
-            keepAlive: true
-          }
+          path: '/gongye10',
+          name: '应用与数据集成平台 ROMA',
+          component: Gongye10
+        },
+        {
+          path: '/gongye11',
+          name: '企业建站',
+          component: Gongye11
+        },
+        {
+          path: '/gongye12',
+          name: '企业办公',
+          component: Gongye12
+        }, {
+          path: '/gongye13',
+          name: '企业安全',
+          component: Gongye13
+        },
+        {
+          path: '/gongye14',
+          name: '上云迁移',
+          component: Gongye14
+        },
+        {
+          path: '/gongye15',
+          name: '企业初创',
+          component: Gongye15
+        },
+        {
+          path: '/gongye16',
+          name: '营销推广',
+          component: Gongye16
         }
+
       ]
     }, {
       path: '/home',
       component: Home,
-      name: '云基础资源',
+      name: '华为云基础服务',
       children: [
         {
-          path: '/cloudbasicresources',
-          name: '云基础资源',
-          component: CloudBasicResources
+          path: '/gongye17',
+          name: '计算',
+          component: Gongye17
+        },
+        {
+          path: '/gongye18',
+          name: '存储',
+          component: Gongye18
+        },
+        {
+          path: '/gongye19',
+          name: '数据库',
+          component: Gongye19
+        }, {
+          path: '/gongye20',
+          name: '网络',
+          component: Gongye20
+        }, {
+          path: '/gongye21',
+          name: '容器服务',
+          component: Gongye21
+        }, {
+          path: '/gongye22',
+          name: '域名与网站',
+          component: Gongye22
         }
       ]
     }, {

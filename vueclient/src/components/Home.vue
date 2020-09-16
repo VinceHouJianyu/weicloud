@@ -1,6 +1,7 @@
 <template>
+
   <el-container class="home_container">
-    <el-header>
+    <el-header class="el-header">
       <img src="../assets/images/logo.png" width="180 px"/>
       <!--<el-input placeholder="请输入内容" prefix-icon="el-icon-search" v-model="input2" style="width: auto"></el-input>-->
       <div class="home_userinfoContainer" >
@@ -16,6 +17,7 @@
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item command="MyHome">个人主页</el-dropdown-item>
             <el-dropdown-item command="MyOrder">我的订单</el-dropdown-item>
+            <el-dropdown-item command="MyUser">用户管理</el-dropdown-item>
             <el-dropdown-item command="sysMsg">系统消息</el-dropdown-item>
             <!--<el-dropdown-item command="MyArticle">我的文章</el-dropdown-item>-->
 
@@ -25,7 +27,7 @@
         </div>
       </div>
     </el-header>
-      <el-header >
+      <el-header class="el-header" >
         <el-menu
           default-active="activeIndex" mode="horizontal"
           class="el-menu-vertical-demo" style="background-color: #ECECEC" router>
@@ -62,6 +64,7 @@
       </el-container>
 
   </el-container>
+
 </template>
 <script>
   import {getRequest} from '../utils/api'
@@ -87,6 +90,9 @@
         }
         if (command == 'MyOrder') {
           _this.$router.replace({path: '/persionhomepage/myorder'});
+        }
+        if (command == 'MyUser') {
+          _this.$router.replace({path: '/persionhomepage/user'});
         }
       }
     },
@@ -122,6 +128,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    left: 30px;
   }
 
   .el-aside {

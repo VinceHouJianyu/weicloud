@@ -3,19 +3,20 @@
   <el-container >
     <el-main>
       <el-card class="box-card" v-for="(product,index) in products" :key="index">
+        <!--<div >
+          <span>工业互联网解决方案</span>
+        </div>-->
         <div slot="header" class="clearfix">
-          <span>解决方案</span>
+           <span>{{product.product_name}} </span>
         </div>
-        <div class="text item">
-          产品名称： <span v-model="product.product_name">{{product.product_name}}</span>
-        </div>
+
         <div class="text item">
           产品价格： <span>{{product.price}}</span>
         </div>
         <div class="text item">
           产品描述：<span>{{product.description}}</span>
         </div>
-        <el-button style="float: right; padding: 3px 0" type="text" @click.native="orderNow(product.price,product.product_name,product.product_id)">立即下单</el-button>
+        <el-button style="float: right; padding: 3px 0" type="text" @click.native="routerto(product.product_id)">详情</el-button>
       </el-card>
     </el-main>
 
@@ -41,7 +42,28 @@
       }
     },
     methods: {
+      routerto(id){
 
+        if (id == 1){
+          this.$router.push({path:'/gongye'})
+        }
+        if (id == 2){
+          this.$router.push({path:'/gongye1'})
+        }
+        if (id == 3){
+          this.$router.push({path:'/gongye2'})
+        }
+        if (id == 16){
+          this.$router.push({path:'/gongye3'})
+        }
+        if (id == 17){
+          this.$router.push({path:'/gongye4'})
+        }
+        if (id == 18){
+          this.$router.push({path:'/gongye5'})
+        }
+
+      },
       orderNow(price,name,id) {
         var _this = this;
         /*this.$confirm('确认立即下单吗?', '提示', {

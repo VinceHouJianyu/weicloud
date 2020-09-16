@@ -6,7 +6,16 @@ public class Product {
     private String description;
     private Long price;
     private Long product_type;
+    private Long num;
 
+
+    public Long getNum() {
+        return num;
+    }
+
+    public void setNum(Long num) {
+        this.num = num;
+    }
 
     public Long getProduct_type() {
         return product_type;

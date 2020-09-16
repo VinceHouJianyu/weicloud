@@ -5,7 +5,7 @@
 <mapper namespace="org.sang.mapper.OrderMapper">
     <select id="getUserOrder" resultType="org.sang.bean.Order">
         SELECT * FROM order_info
-            where username = #{username}
+            where username = #{username} order by order_id desc
 
     </select>
 

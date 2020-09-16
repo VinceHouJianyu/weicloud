@@ -20,6 +20,11 @@ public class ProductController {
         List<Product> product = productService.getAllProduct(product_type);
         return product;
     }
+    @RequestMapping(value = "/getOneProduct", method = RequestMethod.GET)
+    public Product getOneProduct(Long product_id){
+        Product product = productService.getOneProduct(product_id);
+        return product;
+    }
     @RequestMapping(value = "/addOrder" , method = RequestMethod.POST)
     public RespBean addOrder(Product product){
         int result = productService.addOrder(product);

@@ -37,12 +37,24 @@
       width="180">
     </el-table-column>
     <el-table-column
+      prop="order_type"
+      label="订单类型">
+    </el-table-column>
+    <el-table-column
+      prop="price"
+      label="订单单价">
+    </el-table-column>
+    <el-table-column
       prop="order_number"
       label="产品数量">
     </el-table-column>
     <el-table-column
+      label="订单总价" prop="allprice" :formatter="showtotal">
+
+    </el-table-column>
+    <el-table-column
       prop="price"
-      label="产品价格">
+      label="实付金额">
     </el-table-column>
     <el-table-column
       prop="payment_status"
@@ -50,7 +62,11 @@
     </el-table-column>
     <el-table-column
       prop="ordertime"
-      label="下单时间">
+      label="创建时间">
+    </el-table-column>
+    <el-table-column
+      prop="ordertime"
+      label="支付时间">
     </el-table-column>
 
   </el-table>
@@ -93,6 +109,11 @@
         }else if (row.payment_status === 2) {
           return '已付款'
         }
+      },
+
+      showtotal(row, column){
+       
+        return row.price * row.order_number
       }
     }
   }
