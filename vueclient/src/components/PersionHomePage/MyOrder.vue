@@ -53,8 +53,8 @@
 
     </el-table-column>
     <el-table-column
-      prop="price"
-      label="实付金额">
+      label="实付金额" prop="nameprice" :formatter="showt">
+
     </el-table-column>
     <el-table-column
       prop="payment_status"
@@ -113,6 +113,10 @@
 
       showtotal(row, column){
        
+        return row.price * row.order_number
+      },
+      showt(row, column){
+
         return row.price * row.order_number
       }
     }
